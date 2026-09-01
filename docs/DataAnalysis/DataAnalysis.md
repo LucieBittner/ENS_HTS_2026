@@ -33,7 +33,7 @@ Connect to Rstudio server of the IFB. Look at the [tutorial on how to connect to
 
 ### Save the working notebook in your personal environment
 
-1. In "*File > Open File...*" enter the path `/shared/projects/2528_ens_master2lf_fgat/data/tutorials/data_analysis.Rmd` to open the notebook containing all the code needed for the practical.
+1. In "*File > Open File...*" enter the path `/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/tutorials/data_analysis.Rmd` to open the notebook containing all the code needed for the practical.
 
 &nbsp;
 2. Save it into your personal folder on your IFB account using "*File > Save As*"
