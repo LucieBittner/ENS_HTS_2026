@@ -1,6 +1,6 @@
 # Introduction
 
-This GitHub directory is used for the course "Functional genomic data analysis: transcriptomics 2026
+This GitHub directory is used for the course "Functional genomic data analysis: transcriptomics 2026"
 
 ***
 
