@@ -43,7 +43,7 @@ On the following screen you can select the option used by our JupyterHub server 
 
 Clic on "Launch" and wait for the JupyterLab session to be created. Once running, clic on "Connect to Jupyter" to access the server.
 
-![JupyterLab connect](./ressources/jupyterlab_connect.png "JupyterLab connect")
+![JupyterLab connect](./ressources/jupyterlab_connect2026.png "JupyterLab connect")
 
 
 ***
@@ -56,7 +56,7 @@ Once your server has been launched, you will be taken to the application launche
 
 You can click on the "Terminal" tile in order to open a terminal window.
 
-![JupyterLab Terminal](./ressources/jupyterlab_terminal.png "JupyterLab Terminal")
+![JupyterLab Terminal](./ressources/jupyterlab_terminal2026.png "JupyterLab Terminal")
 
 ***
 
