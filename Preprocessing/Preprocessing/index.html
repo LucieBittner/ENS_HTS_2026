@@ -190,7 +190,7 @@
 <p>Connect to Rstudio server of the IFB. Look at the <a href="../../IFB_OpenOnDemand/">tutorial on how to connect to IFB-core Rstudio server</a> to see how to proceed.</p>
 <h3 id="save-the-working-notebook-in-your-personal-environment">Save the working notebook in your personal environment</h3>
 <ol>
-<li>In "<em>File &gt; Open File...</em>" enter the path <code>/shared/projects/2528_ens_master2lf_fgat/data/tutorials/preprocessing_microarrays.Rmd</code> to open the notebook containing all the code needed for the practical.</li>
+<li>In "<em>File &gt; Open File...</em>" enter the path <code>/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/tutorials/preprocessing_microarrays.Rmd</code> to open the notebook containing all the code needed for the practical.</li>
 </ol>
 <p>&nbsp;
 2. Save it into your personal folder on your IFB account using "<em>File &gt; Save As</em>". You can access the path of your home folder using "~".</p>
@@ -260,16 +260,17 @@ tree
 </code></pre>
 <h4 id="run-fastqc-on-each-experiment-files">Run fastqc on each experiment files</h4>
 <pre><code># Absolute path to the file:
-# /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/O2rep2_SRR352263.fastq
+# /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/O2rep2_SRR352263.fastq
+# /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/noO2rep3_SRR352271.fastq
 #
 # -o option creates all output files in the specified output directory,
 # '.' means current directory
 
 # O2 condition
-fastqc /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/O2rep2_SRR352263.fastq -o .
+fastqc /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/O2rep2_SRR352263.fastq -o .
 
 # noO2 condition
-fastqc /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/noO2rep3_SRR352271.fastq -o .
+fastqc /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/noO2rep3_SRR352271.fastq -o .
 </code></pre>
 <p>At this point you should see the new files in your directory using the <code>tree</code> command</p>
 <pre><code>tree
@@ -330,11 +331,11 @@ mkdir 2-Mapping
 <pre><code>## We will use the following options:
 # &quot;-S&quot; will output the result in SAM format
 #
-# &quot;/shared/projects/2528_ens_master2lf_fgat/data/rnaseq/bowtie_indexes/C_parapsilosis&quot;
+# &quot;/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/bowtie_indexes/C_parapsilosis&quot;
 # specify the location and the &quot;prefix (C_parapsilosis)&quot;&quot; of the bowtie's
 # index files
 #
-# &quot;/shared/projects/2528_ens_master2lf_fgat/data/rnaseq/Fastqc/O2rep2_SRR352263.fastq.gz&quot;
+# &quot;/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/Fastqc/O2rep2_SRR352263.fastq.gz&quot;
 # location of the input fastq
 #
 # &quot;2&gt;&quot; will save in a file some statistics about the aligment (number of  
@@ -343,10 +344,10 @@ mkdir 2-Mapping
 # &quot;&gt; redirects the mapping output into a .sam file
 
 # Map the aerobic condition reads
-bowtie -S /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/bowtie_indexes/C_parapsilosis /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/O2rep2_SRR352263.fastq 2&gt; O2rep2_SRR352263_bowtie_mapping.out &gt; O2rep2_SRR352263_bowtie_mapping.sam
+bowtie -S /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/bowtie_indexes/C_parapsilosis /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/O2rep2_SRR352263.fastq 2&gt; O2rep2_SRR352263_bowtie_mapping.out &gt; O2rep2_SRR352263_bowtie_mapping.sam
 
 # Map the hypoxic condition reads
-bowtie -S /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/bowtie_indexes/C_parapsilosis /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/noO2rep3_SRR352271.fastq 2&gt; noO2rep3_SRR352271_bowtie_mapping.out &gt; noO2rep3_SRR352271_bowtie_mapping.sam
+bowtie -S /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/bowtie_indexes/C_parapsilosis /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/noO2rep3_SRR352271.fastq 2&gt; noO2rep3_SRR352271_bowtie_mapping.out &gt; noO2rep3_SRR352271_bowtie_mapping.sam
 </code></pre>
 <p>Your directory should now look like this :</p>
 <pre><code>tree
@@ -474,12 +475,12 @@ mkdir 3-Counts
 <pre><code>module load bedtools/2.31.1
 
 # Counting matrix for the O2 condition
-bedtools multicov -bams ../2-Mapping/O2rep2_SRR352263_bowtie_sorted.bam -bed /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/C_parapsilosis_ORFs.gff &gt; O2rep2_SRR352263_gene_counts.gff
+bedtools multicov -bams ../2-Mapping/O2rep2_SRR352263_bowtie_sorted.bam -bed /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/C_parapsilosis_ORFs.gff &gt; O2rep2_SRR352263_gene_counts.gff
 # Output formating
 sed 's/^.*ID=//' O2rep2_SRR352263_gene_counts.gff &gt; O2rep2_SRR352263_gene_counts.tab
 
 # Counting matrix for the noO2 condition
-bedtools multicov -bams ../2-Mapping/noO2rep3_SRR352271_bowtie_sorted.bam -bed /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/C_parapsilosis_ORFs.gff &gt; noO2rep3_SRR352271_gene_counts.gff
+bedtools multicov -bams ../2-Mapping/noO2rep3_SRR352271_bowtie_sorted.bam -bed /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/C_parapsilosis_ORFs.gff &gt; noO2rep3_SRR352271_gene_counts.gff
 # Output formating
 sed 's/^.*ID=//' noO2rep3_SRR352271_gene_counts.gff &gt; noO2rep3_SRR352271_gene_counts.tab
 </code></pre>
@@ -515,7 +516,7 @@ sed 's/^.*ID=//' noO2rep3_SRR352271_gene_counts.gff &gt; noO2rep3_SRR352271_gene
 <p>Connect to Rstudio server of the IFB. Look at the <a href="../../IFB_OpenOnDemand/">tutorial on how to connect to IFB-core Rstudio server</a> to see how to proceed.</p>
 <h4 id="save-the-working-notebook-in-your-personal-environment_1">Save the working notebook in your personal environment</h4>
 <ol>
-<li>In "<em>File &gt; Open File...</em>" enter the path <code>/shared/projects/2528_ens_master2lf_fgat/data/tutorials/preprocessing_rnaseq.Rmd</code> to open the notebook containing all the code needed for the practical.</li>
+<li>In "<em>File &gt; Open File...</em>" enter the path <code>/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/tutorials/preprocessing_rnaseq.Rmd</code> to open the notebook containing all the code needed for the practical.</li>
 </ol>
 <p>&nbsp;
 2. Save it into your personal folder on your IFB account using "<em>File &gt; Save As</em>"</p>
