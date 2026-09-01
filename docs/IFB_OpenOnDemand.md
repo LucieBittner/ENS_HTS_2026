@@ -6,7 +6,7 @@ You're going to use [Open OnDemand](https://ifb-elixirfr.gitlab.io/cluster/doc/s
 
 ## Sign in on IFB cluster Open OnDemand
 
-In a web browser, connect to [https://ondemand.cluster.france-bioinformatique.fr//](https://ondemand.cluster.france-bioinformatique.fr//) and log in using your IFB username and password.
+In a web browser, connect to [https://ondemand.cluster.france-bioinformatique.fr/](https://ondemand.cluster.france-bioinformatique.fr//) and log in using your IFB username and password.
 
 ![Open OnDemand](./ressources/openondemand_login.png "Open OnDemand")
 
@@ -31,8 +31,8 @@ Clic on the "JupyterLab" tile
 
 On the following screen you can select the option used by our JupyterHub server during the practical. Two nodes have been booked for our training session on IFB server. To build your server on these nodes select the following options:
 
-* Reservation: 2528_fgat
-* Account: 2528_ens_master2lf_fgat
+* Reservation: 2636_usorbonne_Genotranscriptomics
+* Account: tp_2636_usorbonne_geno_transcriptomic_184414
 * Partition: fast
 * CPU: 2
 * Memory: 2G
@@ -70,8 +70,8 @@ Clic on the "RStudio Server" tile
 
 On the following screen you can select the option used by our RStudio server during the practical. Two nodes have been booked for our training session on IFB server. To build your server on these nodes select the following options:
 
-* Reservation: 2528_fgat
-* Account: 2528_ens_master2lf_fgat
+* Reservation: 2636_usorbonne_Genotranscriptomics
+* Account: tp_2636_usorbonne_geno_transcriptomic_184414
 * Partition: fast
 * CPU: 2
 * Memory: 3G
