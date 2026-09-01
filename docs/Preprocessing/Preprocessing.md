@@ -29,7 +29,7 @@ Connect to Rstudio server of the IFB. Look at the [tutorial on how to connect to
 
 ### Save the working notebook in your personal environment
 	
-1. In "*File > Open File...*" enter the path `/shared/projects/2528_ens_master2lf_fgat/data/tutorials/preprocessing_microarrays.Rmd` to open the notebook containing all the code needed for the practical.
+1. In "*File > Open File...*" enter the path `/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/tutorials/preprocessing_microarrays.Rmd` to open the notebook containing all the code needed for the practical.
 
 &nbsp;
 2. Save it into your personal folder on your IFB account using "*File > Save As*". You can access the path of your home folder using "~".
@@ -125,16 +125,17 @@ module load fastqc/0.12.1
 
 ```
 # Absolute path to the file:
-# /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/O2rep2_SRR352263.fastq
+# /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/O2rep2_SRR352263.fastq
+# /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/noO2rep3_SRR352271.fastq
 #
 # -o option creates all output files in the specified output directory,
 # '.' means current directory
 
 # O2 condition
-fastqc /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/O2rep2_SRR352263.fastq -o .
+fastqc /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/O2rep2_SRR352263.fastq -o .
 
 # noO2 condition
-fastqc /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/noO2rep3_SRR352271.fastq -o .
+fastqc /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/noO2rep3_SRR352271.fastq -o .
 ```
 
 At this point you should see the new files in your directory using the `tree` command
@@ -217,11 +218,11 @@ module load bowtie/1.3.1
 ## We will use the following options:
 # "-S" will output the result in SAM format
 #
-# "/shared/projects/2528_ens_master2lf_fgat/data/rnaseq/bowtie_indexes/C_parapsilosis"
+# "/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/bowtie_indexes/C_parapsilosis"
 # specify the location and the "prefix (C_parapsilosis)"" of the bowtie's
 # index files
 #
-# "/shared/projects/2528_ens_master2lf_fgat/data/rnaseq/Fastqc/O2rep2_SRR352263.fastq.gz"
+# "/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/Fastqc/O2rep2_SRR352263.fastq.gz"
 # location of the input fastq
 #
 # "2>" will save in a file some statistics about the aligment (number of  
@@ -230,10 +231,10 @@ module load bowtie/1.3.1
 # "> redirects the mapping output into a .sam file
 
 # Map the aerobic condition reads
-bowtie -S /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/bowtie_indexes/C_parapsilosis /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/O2rep2_SRR352263.fastq 2> O2rep2_SRR352263_bowtie_mapping.out > O2rep2_SRR352263_bowtie_mapping.sam
+bowtie -S /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/bowtie_indexes/C_parapsilosis /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/O2rep2_SRR352263.fastq 2> O2rep2_SRR352263_bowtie_mapping.out > O2rep2_SRR352263_bowtie_mapping.sam
 
 # Map the hypoxic condition reads
-bowtie -S /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/bowtie_indexes/C_parapsilosis /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/noO2rep3_SRR352271.fastq 2> noO2rep3_SRR352271_bowtie_mapping.out > noO2rep3_SRR352271_bowtie_mapping.sam
+bowtie -S /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/bowtie_indexes/C_parapsilosis /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/noO2rep3_SRR352271.fastq 2> noO2rep3_SRR352271_bowtie_mapping.out > noO2rep3_SRR352271_bowtie_mapping.sam
 ```
 
 Your directory should now look like this :
@@ -387,12 +388,12 @@ cd  3-Counts
 module load bedtools/2.31.1
 
 # Counting matrix for the O2 condition
-bedtools multicov -bams ../2-Mapping/O2rep2_SRR352263_bowtie_sorted.bam -bed /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/C_parapsilosis_ORFs.gff > O2rep2_SRR352263_gene_counts.gff
+bedtools multicov -bams ../2-Mapping/O2rep2_SRR352263_bowtie_sorted.bam -bed /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/C_parapsilosis_ORFs.gff > O2rep2_SRR352263_gene_counts.gff
 # Output formating
 sed 's/^.*ID=//' O2rep2_SRR352263_gene_counts.gff > O2rep2_SRR352263_gene_counts.tab
 
 # Counting matrix for the noO2 condition
-bedtools multicov -bams ../2-Mapping/noO2rep3_SRR352271_bowtie_sorted.bam -bed /shared/projects/2528_ens_master2lf_fgat/data/rnaseq/C_parapsilosis_ORFs.gff > noO2rep3_SRR352271_gene_counts.gff
+bedtools multicov -bams ../2-Mapping/noO2rep3_SRR352271_bowtie_sorted.bam -bed /shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/rnaseq/C_parapsilosis_ORFs.gff > noO2rep3_SRR352271_gene_counts.gff
 # Output formating
 sed 's/^.*ID=//' noO2rep3_SRR352271_gene_counts.gff > noO2rep3_SRR352271_gene_counts.tab
 ```
@@ -438,7 +439,7 @@ Connect to Rstudio server of the IFB. Look at the [tutorial on how to connect to
 
 #### Save the working notebook in your personal environment
 	
-1. In "*File > Open File...*" enter the path `/shared/projects/2528_ens_master2lf_fgat/data/tutorials/preprocessing_rnaseq.Rmd` to open the notebook containing all the code needed for the practical.
+1. In "*File > Open File...*" enter the path `/shared/projects/tp_2636_usorbonne_geno_transcriptomic_184414/data/tutorials/preprocessing_rnaseq.Rmd` to open the notebook containing all the code needed for the practical.
 
 &nbsp;
 2. Save it into your personal folder on your IFB account using "*File > Save As*"
